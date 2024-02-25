@@ -1,0 +1,96 @@
+---
+import { Icon } from "astro-icon/components";
+---
+
+<header class="flex w-full h-auto justify-between p-10 items-center flex-wrap absolute">
+    <div>
+        <a href="/" class="uppercase font-bold text-xl text-[#fffffe]">RN<span class="text-[#ff8906]">.</span></a>
+    </div>
+    <div>
+        <nav class="sm:flex hidden">
+            <ul class="flex w-auto">
+                <li><a href="/" class="text-[#fffffe]">Home</a></li>
+                <li><a href="#">Portfolio</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+            <div class="px-3 text-[#fffffe]">|</div>
+            <div class="flex items-center">
+                <a href="https://github.com/RaedRNP" class="px-2">
+                    <Icon name="github"/>
+                </a>
+                <a href="#" class="px-2">
+                    <Icon name="instagram"/>
+                </a>
+                <a href="#" class="px-2">
+                    <Icon name="linkedin"/>
+                </a>
+            </div>
+        </nav>
+        <nav class="flex flex-col sm:hidden relative">
+            <button id="menu" class="text-white">
+                <Icon name="menu"/>
+            </button>
+            <div id="mobile-menu" class="hidden absolute -right-10 top-10 bg-[#0f0e17] w-screen h-40 flex-col justify-evenly border-solid border-[#cacaca] border-b-2">
+                <ul class="flex w-auto flex-col items-end justify-between gap-2 pr-5">
+                    <li><a href="/" class="text-[#fffffe]">Home</a></li>
+                    <li><a href="#">Portfolio</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+
+                <div class="flex items-center justify-end gap-1 pr-5">
+                    <a href="https://github.com/RaedRNP" class="px-2">
+                        <Icon name="github"/>
+                    </a>
+                    <a href="#" class="px-2">
+                        <Icon name="instagram"/>
+                    </a>
+                    <a href="#" class="px-2">
+                        <Icon name="linkedin"/>
+                    </a>
+                </div>
+            </div>
+        </nav>
+    </div>
+</header>
+
+<style>
+    nav ul li {
+        padding-left: 2rem;
+        padding-right: 1rem;
+    }
+    nav ul li a {
+        color: #fffffe;
+    }
+    nav ul li a:hover {
+        color: #a7a9be;
+    }
+    [data-icon] {
+        color: #fffffe;
+        font-size: 1rem;
+    }
+    [data-icon]:hover {
+        color: #a7a9be;
+    }
+    [data-icon="menu"] {
+        font-size: 1.5rem;
+    }
+    [data-icon="menu"]:hover {
+        color: #fffffe;
+    }
+</style>
+
+<script is:inline>
+    const menuBtn = document.getElementById("menu");
+
+    menuBtn.addEventListener("click", () => {
+        const mobileMenu = document.getElementById("mobile-menu");
+        if (mobileMenu.classList.contains("hidden")) {
+            mobileMenu.classList.remove("hidden");
+            mobileMenu.classList.add("flex");
+        } else {
+            mobileMenu.classList.remove("flex");
+            mobileMenu.classList.add("hidden");
+        }
+        
+    })
+</script>

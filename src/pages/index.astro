@@ -1,0 +1,93 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Me from '../assets/me.png';
+import MeMobile from '../assets/meMobile.jpeg';
+import Card from '../components/Card.astro'
+---
+
+<Layout title="Portfolio">
+	<main>
+		<!-- Hero -->
+		<section class="w-full h-screen flex sm:justify-around justify-evenly items-center flex-wrap sm:flex-row flex-col">
+			<img 
+			class="MeMobile block sm:hidden -mb-14 -z-10"
+			src={MeMobile.src} 
+			alt="..."
+			width="100"
+  			decoding="async"
+  			loading="lazy"
+			>
+			<div class="sm:w-3/12 w-5/6 flex flex-col items-center sm:items-start sm:mb-0 -mb-20">
+				<h1 class="w-64 uppercase font-extrabold text-4xl text-[#fffffe]">Raed Nouredine<span class="text-[#ff8906]">.</span></h1>
+				<span class="text-[#fffffe]">_________________________</span>
+				<p class="text-[#cacaca]">Dive into my portfolio to see my creations in action, and let's connect to discuss how I can bring your ideas to life!</p>
+				<a href="#" class="btn-contact text-[#ff8906]">Contact me</a>
+			</div>
+			<div class="w-80 rounded-full sm:block hidden bg-gray-900 absolute h-80 -z-20"></div>
+			<img 
+			class="MeImg absolute sm:block hidden bottom-0 -z-10"
+			src={Me.src} 
+			alt="..."
+			width="450"
+  			decoding="async"
+  			loading="lazy"
+			>
+			<div class="pt-10 sm:w-3/12 w-5/6">
+				<h4 class="font-semibold uppercase text-[#ff8906]">Introduction</h4>
+				<h2 class="font-semibold text-2xl text-[#fffffe]">Python & Web Developer</h2>
+				<p class="text-[#cacaca]">Automation Enthusiast: Streamlining Workflows with Python.</p>
+				<p class="text-[#cacaca]">Full-Stack Developer: Building Beautiful & Functional Web Experiences.</p>
+				<a href="#" class="text-[#ff8906] learn-more">Learn more</a>
+			</div>
+		</section>
+
+		<!-- Services -->
+		<section class="w-full h-screen bg-[#fffffe] flex flex-col justify-center">
+			<div class="flex flex-col items-center text-center">
+				<h4 class="font-semibold uppercase text-[#ff8906]">Services</h4>
+				<h2 class="text-[#0f0e17] font-semibold text-2xl">What I Am Great At</h2>
+				<p class="text-[#2e2f3e] w-10/12">From Automation to Stunning Web Experiences: Your Tech Swiss Army Knife.</p>
+			</div>
+			<div class="flex justify-evenly py-5 flex-wrap">
+				<Card iconName="python" title="Python" exp="+3 Years" />
+				<Card iconName="javascript" title="JavaScript" exp="+2 Years" />
+				<Card iconName="astro" title="Astro" exp="+1 Year" />
+				<Card iconName="react" title="React Native" exp="-1 Year" />
+			</div>
+		</section>
+
+		<!-- Portfolio -->
+		<section></section>
+
+		<section></section>
+
+		<!-- Contact -->
+		<section></section>
+	</main>
+</Layout>
+
+<style>
+	.MeImg {
+		filter: drop-shadow(
+			0 0 10px rgba(0, 0, 0, 0.8)
+		) grayscale(20%);
+	}
+	.MeMobile {
+		border-radius: 50%;
+	}
+	.btn-contact {
+		border: 1px solid #ff8906;
+		width: 8rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1rem;
+		transition: all 0.2s;
+	}
+	.btn-contact:hover {
+		transform: scale(1.1);
+	}
+	.learn-more:hover {
+		text-decoration: underline;
+	}
+</style>

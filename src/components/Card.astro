@@ -1,0 +1,18 @@
+---
+import { Icon } from "astro-icon/components";
+
+const { iconName, title, exp } = Astro.props;
+---
+
+<div id="card" class="my-5 bg-[#0f0e17] w-44 h-48 flex justify-center flex-col items-center rounded-sm shadow-md">
+    <Icon name={iconName} />
+    <h3  class="text-xl font-semibold text-[#fffffe] my-3">{title}</h3>
+    <p class="text-[#a7a9be]">{exp}</p>
+</div>
+
+<style>
+    [data-icon] {
+        color: #fffffe;
+        font-size: 3rem;
+    }
+</style>
