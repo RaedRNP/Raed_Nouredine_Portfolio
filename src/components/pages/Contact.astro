@@ -1,0 +1,24 @@
+---
+import Button from "../Button.astro";
+---
+
+<section
+  id="contact"
+  class="w-full h-screen flex sm:justify-around justify-evenly items-center flex-wrap sm:flex-row flex-col bg-[#fffffe]"
+>
+  <div class="flex flex-col items-center text-center">
+    <h4 class="font-semibold uppercase text-[#ff8906]">Contact</h4>
+    <h2 class="text-[#0f0e17] font-semibold text-2xl">Ways To Contact Me</h2>
+    <p class="text-[#2e2f3e] w-6/12">
+        Impressed by what you've seen? I'm always looking for new challenges! Get in touch to discuss your project needs and see how I can help bring your vision to life.
+    </p>
+    <div class="grid sm:grid-cols-4 grid-flow-row gap-6 mb-10">
+        <Button text="Mail" url="#" />
+        <Button text="Phone Number" url="#" />
+        <Button text="LinkedIn" url="#" />
+        <Button text="GitHub" url="#" />
+    </div>
+    <Button text="Back To Home" url="#hero" />
+  </div>
+</section>
+

@@ -1,0 +1,20 @@
+---
+const {text, url} = Astro.props
+---
+
+<a href={url} class="btn-contact text-[#ff8906]">{text}</a>
+
+<style>
+    .btn-contact {
+		border: 1px solid #ff8906;
+		width: 8rem;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		margin-top: 1rem;
+		transition: all 0.2s;
+	}
+	.btn-contact:hover {
+		transform: scale(1.1);
+	}
+</style>

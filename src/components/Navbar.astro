@@ -79,7 +79,7 @@ import { Icon } from "astro-icon/components";
     }
 </style>
 
-<script is:inline>
+<script>
     const menuBtn = document.getElementById("menu");
 
     menuBtn.addEventListener("click", () => {
@@ -91,6 +91,5 @@ import { Icon } from "astro-icon/components";
             mobileMenu.classList.remove("flex");
             mobileMenu.classList.add("hidden");
         }
-        
     })
 </script>

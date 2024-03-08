@@ -1,0 +1,21 @@
+---
+import Card from '../Card.astro';
+import Button from "../Button.astro"
+---
+
+<section id="services" class="w-full h-screen bg-[#fffffe] flex flex-col justify-center">
+    <div class="flex flex-col items-center text-center">
+        <h4 class="font-semibold uppercase text-[#ff8906]">Services</h4>
+        <h2 class="text-[#0f0e17] font-semibold text-2xl">What I Am Great At</h2>
+        <p class="text-[#2e2f3e] w-10/12">From Automation to Stunning Web Experiences: Your Tech Swiss Army Knife.</p>
+    </div>
+    <div class="flex justify-evenly py-5 flex-wrap">
+        <Card iconName="python" title="Python" exp="+3 Years" />
+        <Card iconName="javascript" title="JavaScript" exp="+2 Years" />
+        <Card iconName="astro" title="Astro" exp="+1 Year" />
+        <Card iconName="react" title="React Native" exp="-1 Year" />
+    </div>
+    <div class="flex justify-center items-center">
+        <Button text="Portfolio" url="#portfolio" />
+    </div>
+</section>
