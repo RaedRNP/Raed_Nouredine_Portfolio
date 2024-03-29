@@ -15,40 +15,45 @@ import Button from "../Button.astro";
       (figuratively, of course). Want to see how I automated daily tasks and
       built some websites along the way? Dive in!
     </p>
-    <nav class="pt-4 pb-8 sm:w-5/12 w-10/12">
-      <ul class="flex items-center justify-evenly">
-        <li
-          class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] own-btn active-own all"
-        >
-          <button>All</button>
-        </li>
-        <li
-          class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] own-btn automation"
-        >
-          <button>Automation</button>
-        </li>
-        <li
-          class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] own-btn web"
-        >
-          <button>Websites</button>
-        </li>
-      </ul>
-    </nav>
-    <div class="text-white max-w-4xl grid sm:grid-cols-2 grid-flow-row gap-6">
-      <div class="org info-automation">
-        <Galeria path="/web-pages/web-page" />
+    <galery-changer>
+      <nav class="pt-4 pb-8 sm:w-5/12 w-10/12">
+        <ul class="flex items-center justify-evenly">
+          <li
+            class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] active-own all"
+          >
+            <button>All</button>
+          </li>
+          <li
+            class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] automation"
+          >
+            <button disabled class="disable" title="Soon...">Automation</button>
+          </li>
+          <li
+            class="text-[#fffffe] w-4 flex justify-center items-center hover:text-[#cacaca] web"
+          >
+            <button>Websites</button>
+          </li>
+        </ul>
+      </nav>
+      <div class="text-white max-w-4xl grid sm:grid-cols-2 grid-flow-row gap-6">
+        <!-- <div class="org info-automation">
+          <Galeria path="/web-pages/web-page" />
+        </div> -->
+        <div class="org info-web">
+          <Galeria path="/web-pages/web-page" />
+        </div>
       </div>
-      <div class="org info-web">
-        <Galeria path="/web-pages/web-page" />
+      <div class="flex justify-center items-center">
+        <Button text="Contact Me" url="#contact" />
       </div>
-    </div>
-    <div class="flex justify-center items-center">
-      <Button text="Contact Me" url="#contact" />
-    </div>
+    </galery-changer>
   </div>
 </section>
 
 <style>
+  .disable {
+    color: #cacaca;
+  }
   .active-own {
     color: #ff8906;
     text-decoration: underline;
@@ -76,28 +81,36 @@ import Button from "../Button.astro";
 </style>
 
 <script>
-  const btns = document.querySelectorAll(".own-btn");
+  class GalleryChanger extends HTMLElement {
+    constructor() {
+      super();
 
-  btns.forEach((btn) => {
-    btn.addEventListener("click", () => {
-      if (!btn.classList.contains("active-own")) {
-        btns.forEach((x) => x.classList.remove("active-own"));
-        btn.classList.add("active-own");
-      }
-      if (btn.classList.contains("automation")) {
-        document.querySelector(".info-web").classList.add("hidden");
-        document.querySelector(".info-web").classList.remove("org");
-        document.querySelector(".info-automation").classList.remove("hidden");
-      } else if (btn.classList.contains("web")) {
-        document.querySelector(".info-automation").classList.add("hidden");
-        document.querySelector(".info-automation").classList.remove("org");
-        document.querySelector(".info-web").classList.remove("hidden");
-      } else {
-        document.querySelector(".info-automation").classList.remove("hidden");
-        document.querySelector(".info-web").classList.remove("hidden");
-        document.querySelector(".info-web").classList.add("org");
-        document.querySelector(".info-automation").classList.add("org");
-      }
-    });
-  });
+      const btns = this.querySelectorAll("li");
+
+      btns.forEach((btn) => {
+        btn.addEventListener("click", () => {
+          if (!btn.classList.contains("active-own")) {
+            btns.forEach((x) => x.classList.remove("active-own"));
+            btn.classList.add("active-own");
+          }
+          if (btn.classList.contains("automation")) {
+            this.querySelector(".info-web").classList.add("hidden");
+            this.querySelector(".info-web").classList.remove("org");
+            this.querySelector(".info-automation").classList.remove("hidden");
+          } else if (btn.classList.contains("web")) {
+            this.querySelector(".info-automation").classList.add("hidden");
+            this.querySelector(".info-automation").classList.remove("org");
+            this.querySelector(".info-web").classList.remove("hidden");
+          } else {
+            this.querySelector(".info-automation").classList.remove("hidden");
+            this.querySelector(".info-web").classList.remove("hidden");
+            this.querySelector(".info-web").classList.add("org");
+            this.querySelector(".info-automation").classList.add("org");
+          }
+        });
+      });
+    }
+  }
+
+  customElements.define("galery-changer", GalleryChanger);
 </script>

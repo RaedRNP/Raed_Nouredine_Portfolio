@@ -4,16 +4,17 @@ const { path } = Astro.props;
 ---
 
 <div class="grid grid-cols-2 gap-6 mx-auto py-10" id="gallery">
-    {
-        Array.from({length: 2}).map((_, i) => (
-            <a 
-            class="shadow-xl rounded-md hover:scale-105 overflow-hidden transition-all"
-            href={`/src/assets/imgs${path}-${i + 1}.webp`}
-            target="_blank">
-                <img src={`/src/assets/imgs${path}-${i + 1}.webp`} alt="..." />
-            </a>
-        ))
-    }
+  {
+    Array.from({ length: 4 }).map((_, i) => (
+      <a
+        class="shadow-xl rounded-md hover:scale-105 overflow-hidden transition-all"
+        href={`/src/assets/imgs${path}-${i + 1}.webp`}
+        target="_blank"
+      >
+        <img src={`/src/assets/imgs${path}-${i + 1}.webp`} alt="..." />
+      </a>
+    ))
+  }
 </div>
 
 <script>
@@ -22,7 +23,7 @@ const { path } = Astro.props;
   const lightbox = new PhotoSwipeLightbox({
     gallery: "#gallery",
     children: "a",
-    pswpModule: () => import('photoswipe'),
+    pswpModule: () => import("photoswipe"),
   });
   lightbox.init();
 </script>
