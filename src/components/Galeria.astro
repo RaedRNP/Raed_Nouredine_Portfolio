@@ -8,13 +8,10 @@ const { path } = Astro.props;
     Array.from({ length: 4 }).map((_, i) => (
       <a
         class="shadow-xl rounded-md hover:scale-105 overflow-hidden transition-all"
-        href={`/src/assets/imgs${path}-${i + 1}.webp`}
+        href={`../assets/imgs${path}-${i + 1}.webp`}
         target="_blank"
       >
-        <img
-          src={`/Raed_Nouredine_Portfolio/src/assets/imgs${path}-${i + 1}.webp`}
-          alt="..."
-        />
+        <img src={`../assets/imgs${path}-${i + 1}.webp`} alt="..." />
       </a>
     ))
   }
