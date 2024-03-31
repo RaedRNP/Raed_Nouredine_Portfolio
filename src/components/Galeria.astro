@@ -1,6 +1,7 @@
 ---
 import "photoswipe/style.css";
 const { path } = Astro.props;
+const folderPath = "/Raed_Nouredine_Portfolio/src/assets/imgs";
 ---
 
 <div class="grid grid-cols-2 gap-6 mx-auto py-10" id="gallery">
@@ -11,7 +12,10 @@ const { path } = Astro.props;
         href={`../assets/imgs${path}-${i + 1}.webp`}
         target="_blank"
       >
-        <img src={`../assets/imgs${path}-${i + 1}.webp`} alt="..." />
+        <img
+          src={`${folderPath}${path}-${i + 1}.webp`}
+          alt={`web-page-${i + 1}`}
+        />
       </a>
     ))
   }
