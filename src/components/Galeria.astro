@@ -8,7 +8,7 @@ const { path } = Astro.props;
     Array.from({ length: 4 }).map((_, i) => (
       <a
         class="shadow-xl rounded-md hover:scale-105 overflow-hidden transition-all"
-        href={`/imgs${path}-${i + 1}.webp`}
+        href={`/imgs/${path}-${i + 1}.webp`}
         target="_blank"
       >
         <img src={`/imgs/${path}-${i + 1}.webp`} alt={`web-page-${i + 1}`} />
