@@ -1,7 +1,6 @@
 ---
 import "photoswipe/style.css";
 const { path } = Astro.props;
-const folderPath = "/Raed_Nouredine_Portfolio/src/assets/imgs";
 ---
 
 <div class="grid grid-cols-2 gap-6 mx-auto py-10" id="gallery">
@@ -9,13 +8,10 @@ const folderPath = "/Raed_Nouredine_Portfolio/src/assets/imgs";
     Array.from({ length: 4 }).map((_, i) => (
       <a
         class="shadow-xl rounded-md hover:scale-105 overflow-hidden transition-all"
-        href={`../assets/imgs${path}-${i + 1}.webp`}
+        href={`/imgs${path}-${i + 1}.webp`}
         target="_blank"
       >
-        <img
-          src={`${folderPath}${path}-${i + 1}.webp`}
-          alt={`web-page-${i + 1}`}
-        />
+        <img src={`/imgs${path}-${i + 1}.webp`} alt={`web-page-${i + 1}`} />
       </a>
     ))
   }

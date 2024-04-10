@@ -7,5 +7,4 @@ import icon from "astro-icon";
 export default defineConfig({
   integrations: [tailwind(), icon()],
   site: "https://raedrnp.github.io",
-  base: "/Raed_Nouredine_Portfolio",
 });
